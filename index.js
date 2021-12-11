@@ -8,6 +8,7 @@ var dotenv_1 = require("dotenv");
 if (process.env.NODE_ENV !== 'production') {
     (0, dotenv_1.config)();
 }
+console.log('server start');
 var PORT = process.env.PORT || 9000;
 var server = (0, fastify_1["default"])({ logger: true });
 /**
@@ -82,6 +83,7 @@ server.get("/", {
     }
 });
 // if (process.env.NODE_ENV !== 'production') {
+console.log("PORT:".concat(PORT));
 server.listen(PORT);
 // }else{
 //   module.exports = server;

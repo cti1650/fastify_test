@@ -7,6 +7,7 @@ if (process.env.NODE_ENV !== 'production') {
   config();
 }
 
+console.log('server start')
 const PORT = process.env.PORT || 9000;
 
 const server:FastifyInstance  = fastify({ logger: true });
@@ -103,6 +104,7 @@ server.get<{ Querystring: UserType; Reply: UserType | ErrorResponseType }>(
 )
 
 // if (process.env.NODE_ENV !== 'production') {
+  console.log(`PORT:${PORT}`);
   server.listen(PORT);
 // }else{
 //   module.exports = server;
