@@ -102,9 +102,9 @@ server.get<{ Querystring: UserType; Reply: UserType | ErrorResponseType }>(
   }
 )
 
-if (process.env.NODE_ENV !== 'production') {
+// if (process.env.NODE_ENV !== 'production') {
   server.listen(PORT);
-}else{
-  module.exports = server;
-}
+// }else{
+//   module.exports = server;
+// }
 
