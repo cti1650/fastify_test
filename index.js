@@ -81,8 +81,8 @@ server.get("/", {
         rep.status(200).send(user);
     }
 });
-if (process.env.NODE_ENV !== 'production') {
-    server.listen(PORT);
-} else {
-    module.exports = server;
-}
+// if (process.env.NODE_ENV !== 'production') {
+server.listen(PORT);
+// }else{
+//   module.exports = server;
+// }
