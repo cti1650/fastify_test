@@ -6,16 +6,15 @@
     "deploy": "~/.deta/bin/deta deploy"
   },
   "dependencies": {
-    "dotenv": "^10.0.0",
-    "fastify": "^3.24.1"
-  },
-  "devDependencies": {
-    "@sinclair/typebox": "^0.23.1",
     "@types/node": "^16.11.12",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "fastify-swagger": "^4.12.6",
     "ts-node-dev": "^1.1.8",
-    "typescript": "^4.5.2"
-  }
+    "typescript": "^4.5.2",
+    "fastify-swagger": "^4.12.6",
+    "@sinclair/typebox": "^0.23.1",
+    "dotenv": "^10.0.0",
+    "fastify": "^3.24.1"
+  },
+  "devDependencies": {}
 }
