@@ -1,0 +1,1 @@
+{"id":"4ee58b18-41e6-4764-88d3-6a6d6d262e40","space":13919,"runtime":"nodejs14.x","name":"fastify_test","path":"kqcquc","project":"c01er5d3","account":"144798365827","region":"ap-southeast-1","deps":["dotenv@^10.0.0","fastify@^3.24.1"],"envs":null,"public":true,"log_level":"debug","cron":""}

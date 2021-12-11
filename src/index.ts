@@ -9,7 +9,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const PORT = process.env.PORT || 9000;
 
-const server: FastifyInstance = fastify({ logger: true })
+const server:FastifyInstance  = fastify({ logger: true });
 
 /**
  * swagger
@@ -102,4 +102,9 @@ server.get<{ Querystring: UserType; Reply: UserType | ErrorResponseType }>(
   }
 )
 
-server.listen(PORT)
+if (process.env.NODE_ENV !== 'production') {
+  server.listen(PORT);
+}else{
+  module.exports = server;
+}
+
