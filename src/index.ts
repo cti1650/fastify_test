@@ -1,20 +1,28 @@
-import { Static, Type } from "@sinclair/typebox"
-import fastify, { FastifyInstance } from "fastify"
-import fastifySwagger from "fastify-swagger"
+import { Static, Type } from "@sinclair/typebox";
+import fastify, { FastifyInstance } from "fastify";
+import fastifySwagger from "fastify-swagger";
+import fastifyCors from "fastify-cors";
 import { config } from 'dotenv';
 
 if (process.env.NODE_ENV !== 'production') {
   config();
 }
 
-console.log('server start')
 const HOST = process.env.NODE_ENV === 'production' ? '0.0.0.0' : '127.0.0.1';
 const PORT = process.env.PORT || 3000;
-console.log(`NODE_ENV = ${process.env.NODE_ENV}`);
-console.log(`HOST = ${HOST}`);
-console.log(`PORT = ${PORT}`);
+console.log(`
+server start
+NODE_ENV = ${process.env.NODE_ENV}
+HOST = ${HOST}
+PORT = ${PORT}
+`);
 
 const server:FastifyInstance  = fastify({ logger: true });
+
+/**
+ * fastify-cors
+ */
+server.register(fastifyCors);
 
 /**
  * swagger

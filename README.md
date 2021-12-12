@@ -72,3 +72,6 @@ const HOST = process.env.NODE_ENV === 'production' ? '0.0.0.0' : '127.0.0.1';
 - [設定と環境設定 | Heroku Dev Center](https://devcenter.heroku.com/ja/articles/config-vars)
 - [Server](https://www.fastify.io/docs/latest/Server/#listen)
 - [Node.js のデプロイのトラブルシューティング | Heroku Dev Center](https://devcenter.heroku.com/ja/articles/troubleshooting-node-deploys#incorrect-port-setup)
+- [Vue+fastify で外部 API を叩いてみた - Qiita](https://qiita.com/RyBB/items/1f4fe302b3e4fc59c026)
+- [Ecosystem](https://www.fastify.io/docs/latest/Ecosystem/#core)
+- [fastify/fastify-cors: Fastify CORS](https://github.com/fastify/fastify-cors)
