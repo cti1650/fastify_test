@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "tsc src/index.ts && npx babel src/ -d .",
+    "compile": "tsc src/index.ts && npx babel src/ -d .",
     "start": "node index.js",
     "setup": "curl -fsSL https://get.deta.dev/cli.sh | sh",
     "deploy": "~/.deta/bin/deta deploy"
