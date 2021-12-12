@@ -8,8 +8,10 @@ if (process.env.NODE_ENV !== 'production') {
     (0, dotenv_1.config)();
 }
 console.log('server start');
+var HOST = process.env.DATABASE_URL || '127.0.0.1';
 var PORT = process.env.PORT || 3000;
 console.log("NODE_ENV = ".concat(process.env.NODE_ENV));
+console.log("HOST = ".concat(HOST));
 console.log("PORT = ".concat(PORT));
 var server = (0, fastify_1["default"])({ logger: true });
 /**
@@ -85,9 +87,8 @@ server.get("/", {
         rep.status(200).send(user);
     }
 });
-// if (process.env.NODE_ENV !== 'production') {
-console.log("PORT:".concat(PORT));
-server.listen(PORT);
-// }else{
-//   module.exports = server;
-// }
+server.listen(PORT, HOST)
+    .then(function (address) { return console.log("server listening on ".concat(address)); })["catch"](function (err) {
+    console.log('Error starting server:', err);
+    process.exit(1);
+});
