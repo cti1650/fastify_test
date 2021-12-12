@@ -8,8 +8,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 console.log('server start')
+const HOST = process.env.DATABASE_URL || '127.0.0.1';
 const PORT = process.env.PORT || 3000;
 console.log(`NODE_ENV = ${process.env.NODE_ENV}`);
+console.log(`HOST = ${HOST}`);
 console.log(`PORT = ${PORT}`);
 
 const server:FastifyInstance  = fastify({ logger: true });
@@ -105,10 +107,10 @@ server.get<{ Querystring: UserType; Reply: UserType | ErrorResponseType }>(
   }
 )
 
-// if (process.env.NODE_ENV !== 'production') {
-  console.log(`PORT:${PORT}`);
-  server.listen(PORT);
-// }else{
-//   module.exports = server;
-// }
+server.listen(PORT,HOST)
+  .then((address) => console.log(`server listening on ${address}`))
+  .catch(err => {
+    console.log('Error starting server:', err)
+    process.exit(1)
+  });
 
