@@ -107,7 +107,7 @@ server.get<{ Querystring: UserType; Reply: UserType | ErrorResponseType }>(
   }
 )
 
-server.listen(PORT,HOST)
+server.listen(PORT)
   .then((address) => console.log(`server listening on ${address}`))
   .catch(err => {
     console.log('Error starting server:', err)
