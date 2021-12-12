@@ -1,20 +1,22 @@
 {
   "scripts": {
     "compile": "tsc src/index.ts && npx babel src/ -d .",
-    "start": "node index.js",
+    "compile_start": "node index.js",
+    "start": "ts-node-dev src/index.ts",
     "setup": "curl -fsSL https://get.deta.dev/cli.sh | sh",
     "deploy": "~/.deta/bin/deta deploy"
   },
   "dependencies": {
-    "@types/node": "^16.11.12",
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "ts-node-dev": "^1.1.8",
-    "typescript": "^4.5.2",
     "fastify-swagger": "^4.12.6",
     "@sinclair/typebox": "^0.23.1",
     "dotenv": "^10.0.0",
     "fastify": "^3.24.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/node": "^16.11.12",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.5.2"
+  }
 }
