@@ -8,7 +8,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 console.log('server start')
-const HOST = process.env.DATABASE_URL || '127.0.0.1';
+const HOST = process.env.NODE_ENV === 'production' ? '0.0.0.0' : '127.0.0.1';
 const PORT = process.env.PORT || 3000;
 console.log(`NODE_ENV = ${process.env.NODE_ENV}`);
 console.log(`HOST = ${HOST}`);
@@ -107,7 +107,7 @@ server.get<{ Querystring: UserType; Reply: UserType | ErrorResponseType }>(
   }
 )
 
-server.listen(PORT)
+server.listen(PORT,HOST)
   .then((address) => console.log(`server listening on ${address}`))
   .catch(err => {
     console.log('Error starting server:', err)
