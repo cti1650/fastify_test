@@ -10,6 +10,8 @@ if (process.env.NODE_ENV !== 'production') {
 }
 console.log('server start');
 var PORT = process.env.PORT || 9000;
+console.log("NODE_ENV = ".concat(process.env.NODE_ENV));
+console.log("PORT = ".concat(PORT));
 var server = (0, fastify_1["default"])({ logger: true });
 /**
  * swagger
