@@ -3,6 +3,9 @@ import fastify, { FastifyInstance } from "fastify";
 import fastifySwagger from "fastify-swagger";
 import fastifyCors from "fastify-cors";
 import { config } from 'dotenv';
+import { test } from './test/index';
+
+console.log(test());
 
 if (process.env.NODE_ENV !== 'production') {
   config();

@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "tsc src/index.ts && npx babel src/ -d dist/ && rm src/index.js",
+    "build": "tsc **/*.ts && npx babel src -d dist && rm src/*.js && rm src/**/*.js",
     "start": "node dist/index.js",
     "dev": "ts-node-dev src/index.ts"
   },
