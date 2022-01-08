@@ -64,24 +64,25 @@ server.register(fastifySwagger, {
   exposeRoute: true,
 })
 
-server.get<{ Querystring: UserType; Reply: UserType | ErrorResponseType }>(
+
+/**
+ * sample get
+ */
+const Message = Type.Object({
+  text: Type.String(),
+})
+type MessageType = Static<typeof Message>
+server.get<{ Reply: MessageType }>(
   "/",
   {
     schema: {
-      querystring: User,
       response: {
-        200: User,
-        400: ErrorResponse,
+        200: Message,
       },
     },
   },
   (req, rep) => {
-    const { query: user } = req
-    if (user.name.length < 3) {
-      rep.status(400).send({ msg: "name is too short" })
-    } else {
-      rep.status(200).send(user)
-    }
+    rep.status(200).send({text:'Hello World!!'})
   }
 )
 
