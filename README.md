@@ -12,6 +12,8 @@ yarn setup
 
 ### サンプル
 
+<a title="Gitpod" href="https://gitpod.io/#https://github.com/cti1650/fastify_test" rel="nofollow noreferrer noopener" target="_blank" class="btn btn-primary">Gitpodでサンプルを実行</a>
+
 #### 本番リンク
 
 [https://fastify-test-cti-tl.herokuapp.com/?name=test](https://fastify-test-cti-tl.herokuapp.com/?name=test)
