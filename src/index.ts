@@ -43,6 +43,27 @@ server.register(fastifySwagger, {
 })
 
 /**
+ * sample get
+ */
+const Message = Type.Object({
+  text: Type.String(),
+})
+type MessageType = Static<typeof Message>
+server.get<{ Reply: MessageType }>(
+  "/",
+  {
+    schema: {
+      response: {
+        200: Message,
+      },
+    },
+  },
+  (req, rep) => {
+    rep.status(200).send({text:'Hello World!!'})
+  }
+)
+
+/**
  * test_post
  * https://www.fastify.io/docs/latest/TypeScript/#typebox
  */
@@ -98,7 +119,7 @@ server.get<{ Querystring: UserType; Reply: UserType | ErrorResponseType }>(
 )
 
 server.get<{ Querystring: UserType; Reply: UserType | ErrorResponseType }>(
-  "/",
+  "/user",
   {
     schema: {
       querystring: User,
