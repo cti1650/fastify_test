@@ -18,6 +18,81 @@ yarn setup
 
 [https://fastify-test-cti-tl.herokuapp.com/?name=test](https://fastify-test-cti-tl.herokuapp.com/?name=test)
 
+
+```
+import { Static, Type } from "@sinclair/typebox";
+import fastify, { FastifyInstance } from "fastify";
+import fastifySwagger from "fastify-swagger";
+import fastifyCors from "fastify-cors";
+import { config } from 'dotenv';
+import { test } from './test/index';
+
+console.log(test());
+
+if (process.env.NODE_ENV !== 'production') {
+  config();
+}
+
+const HOST = process.env.NODE_ENV === 'production' ? '0.0.0.0' : '127.0.0.1';
+const PORT = process.env.PORT || 3000;
+console.log(`
+server start
+NODE_ENV = ${process.env.NODE_ENV}
+HOST = ${HOST}
+PORT = ${PORT}
+`);
+
+const server:FastifyInstance  = fastify({ logger: true });
+
+/**
+ * fastify-cors
+ */
+server.register(fastifyCors);
+
+/**
+ * swagger
+ */
+server.register(fastifySwagger, {
+  routePrefix: "/docs",
+  swagger: {
+    info: {
+      title: "Test swagger",
+      description: "Testing the Fastify swagger API",
+      version: "0.1.0",
+    },
+  },
+  exposeRoute: true,
+})
+
+server.get<{ Querystring: UserType; Reply: UserType | ErrorResponseType }>(
+  "/",
+  {
+    schema: {
+      querystring: User,
+      response: {
+        200: User,
+        400: ErrorResponse,
+      },
+    },
+  },
+  (req, rep) => {
+    const { query: user } = req
+    if (user.name.length < 3) {
+      rep.status(400).send({ msg: "name is too short" })
+    } else {
+      rep.status(200).send(user)
+    }
+  }
+)
+
+server.listen(PORT,HOST)
+  .then((address) => console.log(`server listening on ${address}`))
+  .catch(err => {
+    console.log('Error starting server:', err)
+    process.exit(1)
+  });
+```
+
 ### 動作検証
 
 **ts-node-dev**を活用し、TypeScript のまま動作検証できるようにしてあります。
