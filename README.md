@@ -19,7 +19,7 @@ yarn setup
 [https://fastify-test-cti-tl.herokuapp.com/?name=test](https://fastify-test-cti-tl.herokuapp.com/?name=test)
 
 
-```
+```typescript
 import { Static, Type } from "@sinclair/typebox";
 import fastify, { FastifyInstance } from "fastify";
 import fastifySwagger from "fastify-swagger";
