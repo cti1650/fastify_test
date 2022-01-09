@@ -16,7 +16,7 @@ yarn setup
 
 #### 本番リンク
 
-[https://fastify-test-cti-tl.herokuapp.com/?name=test](https://fastify-test-cti-tl.herokuapp.com/?name=test)
+[https://fastify-test-cti-tl.herokuapp.com/](https://fastify-test-cti-tl.herokuapp.com/)
 
 
 ```typescript
